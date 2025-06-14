@@ -1,0 +1,53 @@
+{
+    "name": "dreamhouse-lwc",
+    "version": "1.0.0",
+    "description": "Dreamhouse Sample App - Lightning Web Components",
+    "scripts": {
+        "lint": "eslint **/lwc/**/*.js",
+        "test": "npm run test:unit",
+        "test:unit": "sfdx-lwc-jest",
+        "test:unit:watch": "sfdx-lwc-jest --watch ",
+        "test:unit:debug": "sfdx-lwc-jest --debug ",
+        "test:unit:coverage": "sfdx-lwc-jest --coverage ",
+        "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "prettier:verify": "prettier --check \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "prepare": "husky || true",
+        "precommit": "lint-staged"
+    },
+    "lint-staged": {
+        "**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}": [
+            "prettier --write"
+        ],
+        "**/lwc/**/*.js": [
+            "eslint"
+        ],
+        "**/lwc/**": [
+            "sfdx-lwc-jest -- --bail --findRelatedTests --passWithNoTests"
+        ]
+    },
+    "author": "salesforce.com",
+    "license": "CC0-1.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/trailheadapps/dreamhouse-lwc"
+    },
+    "devDependencies": {
+        "@lwc/eslint-plugin-lwc": "^2.1.0",
+        "@prettier/plugin-xml": "^3.4.1",
+        "@sa11y/jest": "^7.1.2",
+        "@salesforce/eslint-config-lwc": "^3.7.1",
+        "@salesforce/eslint-plugin-lightning": "^1.0.1",
+        "@salesforce/sfdx-lwc-jest": "^7.0.1",
+        "eslint": "^8.57.1",
+        "eslint-plugin-import": "^2.31.0",
+        "eslint-plugin-jest": "^28.11.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^15.5.1",
+        "prettier": "^3.5.3",
+        "prettier-plugin-apex": "^2.2.6"
+    },
+    "dependencies": {},
+    "volta": {
+        "node": "20.15.0"
+    }
+}
